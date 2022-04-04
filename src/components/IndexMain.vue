@@ -5,14 +5,14 @@
                 <div class="col-12 text-center fs-4 my-4">
                     <h2>Hai cercato:</h2>
                     
-                    <p v-for="(element, index) in filmList" :key=index>
+<!--                     <p v-for="(element, index) in filmList" :key=index>
                         {{element.title}}
-                    </p>
+                    </p> -->
                 </div>
             </div>
 
             <div class="row row-cols-5">
-                <div v-for="(element, index) in newSearch(filmList)" :key=index class="col">
+                <div v-for="(element, index) in filmList" :key=index class="col">
                     <FilmCard 
                         :lingua="element.original_language"
                         :titolo="element.original_title"
