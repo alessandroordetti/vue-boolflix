@@ -9,7 +9,7 @@
                             
                             <input class="form-control mx-3 mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="searchFilm" @keyup.enter="$emit('cercaFilm', searchFilm)">
                             
-                            <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
+                            <button class="btn btn-primary my-2 my-sm-0" type="submit" @click="$emit('cercaFilm', searchFilm)">Search</button>
                         </div>
                     </nav>
                 </div>

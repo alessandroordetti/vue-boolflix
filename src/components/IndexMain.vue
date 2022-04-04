@@ -61,10 +61,7 @@ export default {
             })
         }, */
 
-        newSearch (stringToSearch) {
-            console.log(stringToSearch);
-            return this.filmListArray.filter((element) => element.original_title.toLowerCase().includes(stringToSearch.toLowerCase()));
-        },
+
     },
 
 }
