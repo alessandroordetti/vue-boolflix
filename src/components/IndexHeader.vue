@@ -5,10 +5,12 @@
                 <div class="col-12">
                     <nav class="navbar navbar-dark justify-content-between">
                         <img src="../assets/logo.png" alt="Netflix Logo">
-                        <form class="form-inline d-flex">
-                            <input class="form-control mx-3 mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <div class="form-inline d-flex">
+                            
+                            <input class="form-control mx-3 mr-sm-2" type="search" placeholder="Search" aria-label="Search" v-model="searchFilm" @keyup.enter="$emit('cercaFilm', searchFilm)">
+                            
                             <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                        </div>
                     </nav>
                 </div>
             </div>
@@ -21,7 +23,17 @@
 export default {
     name: 'IndexHeader',
 
+    data: function(){
+        return {
+            searchFilm: '',
+        }
+    },
 
+    methods: {
+        resetSearchbar(){
+            this.searchFilm = '';
+        }
+    }
 }
 </script>
 

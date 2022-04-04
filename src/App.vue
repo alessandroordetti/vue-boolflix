@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <IndexHeader />
+    <IndexHeader @cercaFilm='nuovaRicerca' />
 
-    <IndexMain />
+    <IndexMain :filmList="filmList"/>
 
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 import IndexHeader from './components/IndexHeader.vue';
 import IndexMain from './components/IndexMain.vue';
 
@@ -17,6 +19,24 @@ export default {
   components: {
     IndexHeader,
     IndexMain
+  }, 
+
+  data: function(){
+    return {
+      filmList: [],
+    }
+  },
+
+  methods: {
+    nuovaRicerca (cercaFilm) {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=25cf02f7f319fef92585c5875256324a&query=${cercaFilm}`).then((result)=> {
+            this.filmList = result.data.results;
+            console.log(this.filmList);
+            })
+            .catch((error) =>{
+            console.error(error);
+            })
+    },
   }
 }
 </script>

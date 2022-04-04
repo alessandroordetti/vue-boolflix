@@ -1,8 +1,18 @@
 <template>
-    <main>
+    <main >
         <div class="container">
             <div class="row">
-                <div class="" v-for="(element, index) in filmList" :key=index>
+                <div class="col-12 text-center fs-4 my-4">
+                    <h2>Hai cercato:</h2>
+                    
+                    <p v-for="(element, index) in filmList" :key=index>
+                        {{element.title}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="row row-cols-5">
+                <div v-for="(element, index) in newSearch(filmList)" :key=index class="col">
                     <FilmCard 
                         :lingua="element.original_language"
                         :titolo="element.original_title"
@@ -16,8 +26,8 @@
 </template>
 
 <script>
-import axios from "axios";
-import FilmCard from './FilmCard.vue'
+/* import axios from "axios";
+ */import FilmCard from './FilmCard.vue'
 
 
 
@@ -28,33 +38,38 @@ export default {
         FilmCard,
     },
 
+    props: {
+        'filmList': Array,
+    },
+
 
     data: function(){
         return {
-            filmList: '',
+            filmListArray: [],
         }
-    },
-
-    created: function () {
-    this.getApi();
     },
 
     methods: {
-    getApi () {
-        axios
-        .get('https://api.themoviedb.org/3/search/movie?api_key=25cf02f7f319fef92585c5875256324a&language=en-US&page=1&include_adult=false&query=1')
-        .then((result)=> {
-        this.filmList = result.data.results;
-        })
-        .catch((error) =>{
-        console.error(error);
-        })
-        }
+/*         getApi () {
+            axios
+            .get('https://api.themoviedb.org/3/search/movie?api_key=25cf02f7f319fef92585c5875256324a&language=en-US&page=1&include_adult=false&query=50')
+            .then((result)=> {
+            this.filmList = result.data.results;
+            })
+            .catch((error) =>{
+            console.error(error);
+            })
+        }, */
+
+        newSearch (stringToSearch) {
+            console.log(stringToSearch);
+            return this.filmListArray.filter((element) => element.original_title.toLowerCase().includes(stringToSearch.toLowerCase()));
+        },
     },
 
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>
