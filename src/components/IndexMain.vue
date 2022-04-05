@@ -55,17 +55,6 @@ export default {
     },
 
     methods: {
-/*         getApi () {
-            axios
-            .get('https://api.themoviedb.org/3/search/movie?api_key=25cf02f7f319fef92585c5875256324a&language=en-US&page=1&include_adult=false&query=50')
-            .then((result)=> {
-            this.filmList = result.data.results;
-            })
-            .catch((error) =>{
-            console.error(error);
-            })
-        }, */
-
 
     },
 
