@@ -4,7 +4,8 @@
 
             <div class="row row-cols-5">
                 <div v-for="(element, index) in filmList" :key=index class="col my-4">
-                    <FilmCard 
+                    <FilmCard
+                        :locandina="element.poster_path"
                         :lingua="element.original_language"
                         :titolo="element.original_title"
                         :titoloOriginale="element.original_title"
@@ -16,6 +17,7 @@
             <div class="row row-cols-5">
                 <div v-for="(element, index) in serieList" :key=index class="col">
                     <FilmCard 
+                        :locandina="element.poster_path"
                         :lingua="element.original_language"
                         :titolo="element.original_name"
                         :titoloOriginale="element.name"
