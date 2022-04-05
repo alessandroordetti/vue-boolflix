@@ -1,22 +1,24 @@
 <template>
     <main >
         <div class="container">
-            <div class="row">
-                <div class="col-12 text-center fs-4 my-4">
-                    <h2>Hai cercato:</h2>
-                    
-<!--                     <p v-for="(element, index) in filmList" :key=index>
-                        {{element.title}}
-                    </p> -->
-                </div>
-            </div>
 
             <div class="row row-cols-5">
-                <div v-for="(element, index) in filmList" :key=index class="col">
+                <div v-for="(element, index) in filmList" :key=index class="col my-4">
                     <FilmCard 
                         :lingua="element.original_language"
                         :titolo="element.original_title"
                         :titoloOriginale="element.original_title"
+                        :votoMedio="element.vote_average"
+                    />
+                </div>
+            </div>
+
+            <div class="row row-cols-5">
+                <div v-for="(element, index) in serieList" :key=index class="col">
+                    <FilmCard 
+                        :lingua="element.original_language"
+                        :titolo="element.original_name"
+                        :titoloOriginale="element.name"
                         :votoMedio="element.vote_average"
                     />
                 </div>
@@ -40,6 +42,7 @@ export default {
 
     props: {
         'filmList': Array,
+        'serieList': Array
     },
 
 

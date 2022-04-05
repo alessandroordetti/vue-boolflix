@@ -4,7 +4,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{titolo}}</h5>
                 <p class="card-text">{{titoloOriginale}}</p>
-                <p class="card-text">{{lingua}}</p>
+                <img src="'https://flagcdn.com/16x12/' + lingua + '.png'">
                 <p class="card-text">{{votoMedio}}</p>
             </div>
         </div>
