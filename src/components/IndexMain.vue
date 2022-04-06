@@ -10,6 +10,7 @@
                         :titolo="element.original_title"
                         :titoloOriginale="element.original_title"
                         :votoMedio="element.vote_average"
+                        :descrizione="element.overview"
                     />
                 </div>
             </div>
@@ -22,6 +23,7 @@
                         :titolo="element.original_name"
                         :titoloOriginale="element.name"
                         :votoMedio="element.vote_average"
+                        :descrizione="element.overview"
                     />
                 </div>
             </div>
@@ -62,5 +64,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    main {
+        background-image: url('https://redcapes.it/wp-content/uploads/2019/06/netflix.jpeg');
+    }
 </style>
